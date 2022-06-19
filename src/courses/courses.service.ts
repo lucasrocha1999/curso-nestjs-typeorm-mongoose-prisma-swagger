@@ -10,7 +10,7 @@ export class CoursesService {
   constructor(
     @InjectRepository(Course)
     private readonly courseRepository: Repository<Course>,
-  ) { }
+  ) {}
 
   findAll() {
     return this.courseRepository.find();
