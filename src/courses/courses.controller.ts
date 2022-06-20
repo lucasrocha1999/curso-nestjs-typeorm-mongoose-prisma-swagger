@@ -37,6 +37,6 @@ export class CoursesController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.coursesService.delete(id);
+    return this.coursesService.remove(id);
   }
 }

@@ -21,4 +21,4 @@ import { CoursesModule } from './courses/courses.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
