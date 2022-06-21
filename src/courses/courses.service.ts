@@ -14,7 +14,7 @@ export class CoursesService {
 
     @InjectRepository(Tag)
     private readonly tagRepository: Repository<Tag>,
-  ) {}
+  ) { }
 
   findAll() {
     return this.courseRepository.find({
@@ -24,7 +24,7 @@ export class CoursesService {
 
   findOne(id: string) {
     const course = this.courseRepository.findOne({
-      where: { id: Number(id) },
+      where: { id: id },
       relations: ['tags'],
     });
 
@@ -69,7 +69,7 @@ export class CoursesService {
 
   async remove(id: string) {
     const course = await this.courseRepository.findOne({
-      where: { id: Number(id) },
+      where: { id: id },
     });
 
     if (!course) {
