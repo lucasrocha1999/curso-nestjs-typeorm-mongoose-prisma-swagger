@@ -10,4 +10,4 @@ import { Tag } from './entities/tag.entity';
   controllers: [CoursesController],
   providers: [CoursesService],
 })
-export class CoursesModule { }
+export class CoursesModule {}

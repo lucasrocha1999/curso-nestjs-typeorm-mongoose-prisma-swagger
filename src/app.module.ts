@@ -9,16 +9,17 @@ import { CoursesModule } from './courses/courses.module';
     CoursesModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'db',
       port: 5432,
-      username: 'admin',
-      password: 'admin',
-      database: 'postgres',
-      autoLoadEntities: true,
-      synchronize: true,
+      username: 'postgres',
+      password: 'docker',
+      database: 'cursonestjs',
+      entities: [__dirname + '/**/*.entity.js'],
+      autoLoadEntities: false,
+      synchronize: false,
     }),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
