@@ -12,6 +12,7 @@ import { SignupDto } from './dto/signup.dto';
 import { User } from './models/users.model';
 import { SigninDto } from './dto/signin.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { ISignin } from './interfaces/signin.interface';
 
 @Controller('users')
 export class UsersController {
@@ -25,9 +26,7 @@ export class UsersController {
 
   @Post('signin')
   @HttpCode(HttpStatus.OK)
-  public async signin(
-    @Body() signinDto: SigninDto,
-  ): Promise<{ name: string; jwtToken: string; email: string }> {
+  public async signin(@Body() signinDto: SigninDto): Promise<ISignin> {
     return this.usersService.signin(signinDto);
   }
 
