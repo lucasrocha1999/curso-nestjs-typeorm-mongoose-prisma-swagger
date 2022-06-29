@@ -6,6 +6,7 @@ import { User } from './models/users.model';
 import { AuthService } from '../auth/auth.service';
 import { SignupDto } from './dto/signup.dto';
 import { SigninDto } from './dto/signin.dto';
+import { ISignin } from './interfaces/signin.interface';
 
 @Injectable()
 export class UsersService {
@@ -20,9 +21,7 @@ export class UsersService {
     return user.save();
   }
 
-  public async signin(
-    signinDto: SigninDto,
-  ): Promise<{ name: string; jwtToken: string; email: string }> {
+  public async signin(signinDto: SigninDto): Promise<ISignin> {
     const user = await this.findByEmail(signinDto.email);
     const match = await this.checkPassword(signinDto.password, user);
 
