@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
 }
 
 datasource db {
@@ -17,7 +18,6 @@ model User {
   admin     Boolean  @default(false)
   createdAt DateTime @default(now())
   posts     Post[]
-
   @@map("user")
 }
 
@@ -30,6 +30,5 @@ model Post {
   updatedAt DateTime @default(now())
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
-
   @@map("post")
 }
